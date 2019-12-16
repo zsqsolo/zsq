@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 5.0//EN"	
+	"http://hibernate.sourceforge.net/hibernate-mapping-5.0.dtd">
+<hibernate-mapping>
+
+	<class name="raky.train.entity.Users" table="users">
+		<id name="id" type="long" column="id">
+			<generator class="native"/>
+		</id>
+		<!-- not-null="true" -->
+		<property name="name" type="string" column="name"  />
+		<property name="pass" type="string" column="pass"  />
+		<property name="age" type="int" column="age"  />
+	</class>
+	
+	<!-- xml编写的sql语句，不灵活，一般不推荐 -->
+	<query name="getUsersByName">
+     	<![CDATA[from Users where name=:name]]>
+   </query>
+</hibernate-mapping>
